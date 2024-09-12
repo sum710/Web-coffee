@@ -122,7 +122,7 @@
       /* Featured products styles */
       .featured-products {
         display: flex;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         gap: 2rem;
         justify-content: center;
       }
@@ -338,34 +338,52 @@
       }
 
       /* Responsive design */
-      @media only screen  and (max-width: 768px) {
+      @media only screen and (max-width: 1024px) {
+        .featured-products, .menu-items, .testimonials {
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+        
+        .product-card, .menu-item, .testimonial-card {
+          flex: 0 1 calc(50% - 1rem);
+        }
+      }
+      
+      @media only screen and (max-width: 768px) {
+        .about {
+          flex-direction: column;
+          text-align: center;
+        }
+      
+        .about-image img {
+          max-width: 100%;
+        }
+      
+        .product-card, .menu-item {
+          flex: 0 1 calc(50% - 1rem);
+        }
+      }
+      
+      @media only screen and (max-width: 480px) {
+        .product-card, .menu-item, .testimonial-card {
+          flex: 0 1 100%;
+        }
+      
         .header-content {
           flex-direction: column;
           gap: 1rem;
         }
-
+      
         .hero h1 {
           font-size: 2rem;
         }
-
+      
         .about {
           flex-direction: column;
-        }
-
-        .product-card,
-        .menu-item,
-        .testimonial-card {
-          flex: 0 1 calc(50% - 1rem);
+          text-align: center;
         }
       }
-
-      @media only screen and (max-width: 400px) {
-        .product-card,
-        .menu-item,
-        .testimonial-card {
-          flex: 0 1 100%;
-        }
-      }
+      
     </style>
   </head>
   <body>
